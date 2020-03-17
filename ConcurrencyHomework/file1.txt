@@ -1,0 +1,6 @@
+Simona,1998-03-16,female
+Monica,1990-03-17,female
+Maria,1990-03-17,female
+Ion,1990-03-15,male
+Simona,1998-03-15,female
+Monica,1990-03-15,female
