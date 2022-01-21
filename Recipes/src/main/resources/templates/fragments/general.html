@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+
+<nav th:fragment="navBar" class="navbar navbar-expand-xl navbar-light bg-light static-top">
+    <a class="navbar-brand" href="/recipes">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/recipes/soup"> Soup </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/recipes/main-dish">Main Dish</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/recipes/salad">Salad</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/recipes/dessert">Dessert</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/recipes/miscellaneous">Miscellaneous</a>
+        </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/recipes/about">About me</a>
+            </li>
+
+        </ul>
+
+        <a class="navbar-brand" href="/recipes/add">Add new recipe</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+    </div>
+</nav>
+
+
+<p>Go to the next page to see fragments in action</p>
+<aside>
+    <div>This is a sidebar</div>
+</aside>
+<div class="another">This is another sidebar</div>
+<footer th:fragment="footer">
+    <a th:href="@{/fragments}">Fragments Index</a> |
+    <a th:href="@{/markup}">Markup inclussion</a> |
+    <a th:href="@{/params}">Fragment params</a> |
+    <a th:href="@{/other}">Other</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add recipe</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div th:insert="fragments/general :: navBar"></div>
+
+<div class="container">
+    <form th:action="@{add}" th:object="${recipeToAdd}" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <h5> Name of the recipe </h5>
+            <input type="text" class="form-control" th:field="*{name}">
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <h5> Short Description </h5>
+            <input type="text" class="form-control" th:field="*{description}">
+            <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <h5> Ingredients </h5>
+            <textarea class="form-control" th:field="*{ingredients}" rows="2"></textarea>
+            <span th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <h5> Directions </h5>
+            <textarea class="form-control" th:field="*{directions}" rows="2"></textarea>
+            <span th:if="${#fields.hasErrors('directions')}" th:errors="*{directions}" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="file" class="form-control" placeholder="Image" th:field="*{image}">
+            <span th:if="${#fields.hasErrors('image')}" th:errors="*{image}" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <h5> Category </h5>
+            <select name="category" th:field="*{category}">
+                <option th:each="category : ${T(siit.proiect.recipes.model.Category).values()}"
+                        th:value="${category}" th:text="${category.name}"></option>
+
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+</body>
+</html>
